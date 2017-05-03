@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="plugins/h5fileupload/css/fileinput.css"/>
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+		<!-- AdminLTE Skins. Choose a skin from the css/skins
+		<!-- bootstrap wysihtml5 - text editor -->
+		<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		<link rel="stylesheet" type="text/css" href="plugins/layer-v3.0.3/layer/skin/default/layer.css"/>
+	</head>
+	<body>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="nav-tabs-custom">
+					 <div class="tab-content">
+					 	<div class="tab-pane active">
+					 		<form action="#" method="post" class="form-horizontal" style="padding: 0 15px 0 15px;" id="article-form">
+					 			<div class="form-group">
+					 				<input type="file" id="file" multiple="multiple"/>
+					 			</div>
+					 			<p class="text-center">最大上传文件大小为100MB</p>
+					 		</form>
+					 	</div>
+					 </div>
+				</div>
+			</div>
+			<button type="button" class="btn btn-block btn-primary" style="width: 100px; float: right;margin-right: 25px; margin-bottom: 20px;padding: 5px;" onclick="doConfirm()"><i class="fa fa-check-square-o"></i>确认</button>
+		</div>
+		
+		<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<script src="plugins/jQuery/jquery.min.js"></script>
+		<script type="text/javascript" src="plugins/h5fileupload/js/fileinput.js" ></script>
+		<script type="text/javascript" src="plugins/layer-v3.0.3/layer/layer.js" ></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#file").fileinput({
+					 language: 'zh',
+			         uploadUrl: '#',
+			         allowedFileExtensions : ['jpg', 'png','bmp','gif'],
+			         minFileCount:1,
+			         maxFileCount:1
+				}).on("fileuploaded",function(even,data){
+					var res = $.parseJSON(data.response);
+				});
+			});
+		</script>
+	</body>
+</html>
